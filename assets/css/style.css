@@ -1,0 +1,37 @@
+/* Global style */
+
+body {
+    background-color:#F0F8FF;
+    font-family: "Moderustic", sans-serif;
+    color: #8B0000;
+    text-align: center;
+}
+
+/* Parent container to hold the logo and text */
+.header-container {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+}
+
+/* background image */
+.logo {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 75%;
+    opacity: 0.1; 
+    z-index: 1;
+}
+
+
+
+/* Media queries for smaller screens */
+@media (max-width: 720px) {
+
+    .header-container{
+        width: 75%;
+    }
+}

@@ -1,13 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Meta tags for search engines -->
+    <meta name="description"
+        content="Guess the Premier League player! Take this quiz and see how well you really know the stars of English football.">
+    <meta name="keywords" content="Premier League, football, football players, quiz, game, challenge, guess">
+
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Moderustic&display=swap" rel="stylesheet">
+
+
+    <!-- Stylesheet -->
     <link rel="stylesheet" href="assets/css/style.css">
-    <title>Document</title>
+    <!-- Title -->
+    <title>Guess the Premier League player!</title>
 </head>
+
 <body>
-    
+    <div class="header-container">
+        <img class="logo" src="assets/images/logo.png" alt="logo">
+        <h1 class="heading">Guess the Premier League player!</h1>
+    </div>
+
+    <div class="game-area">
+        <div class="question-area"></div>
+
+        <div class="answer-area">
+            <p class="answer-message">Enter Answer:</p>
+            <input id="answer-box" type="text">
+        </div>
+        <button data-type="submit" class="submit-button">Submit!</button>
+
+    </div>
+
+    <div class="score-area">
+        <p class="scores">Score <span id="score">0</span> /10</p>
+
+    </div>
+
     <script src="assets/js/script.js"></script>
 </body>
+
 </html>
