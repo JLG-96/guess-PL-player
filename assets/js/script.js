@@ -70,6 +70,31 @@ let players = [{
     }
 ];
 
-let randomPlayer = players[Math.floor(Math.random() * players.length)];
+document.addEventListener("DOMContentLoaded", function () {
+    console.log("DOM fully loaded and parsed");
 
-document.getElementById("player-image").src = `assets/images/players/${randomPlayer.image}`;
+
+    let randomPlayer = players[Math.floor(Math.random() * players.length)];
+
+    document.getElementById("player-image").src = `assets/images/players/${randomPlayer.image}`;
+
+    document.querySelector('.submit-button').addEventListener('click', function () {
+        // get users answer
+
+        let userAnswer = document.getElementById('answer-box').value.trim();
+
+        // compare user answer with correct answer
+
+        if (userAnswer.toLowerCase() === randomPlayer.name.toLowerCase()) {
+
+            document.getElementById('feedback-message').textContent = "Shoots and scores! Well done!";
+
+        } else {
+
+            document.getElementById('feedback-message').textContent = `What a miss! The correct answer was ${randomPlayer.name}.`;
+        }
+
+        console.log("Feedback message set");
+    });
+
+});
