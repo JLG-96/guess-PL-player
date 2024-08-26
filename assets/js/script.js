@@ -76,15 +76,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let randomPlayer = players[Math.floor(Math.random() * players.length)];
 
+    function updatePlayer() {
+        randomPlayer = players[Math.floor(Math.random() * players.length)];
+
+        document.getElementById("player-image").src =`assets/images/players/${randomPlayer.image}`;
+
+        // clear feedback and input field
+        document.getElementById("answer-box").value = '';
+        document.getElementById('feedback-message').textContent ='';
+    }
+
     document.getElementById("player-image").src = `assets/images/players/${randomPlayer.image}`;
 
-    document.querySelector('.submit-button').addEventListener('click', function () {
-        // get users answer
+    document.querySelector('.submit-button').addEventListener('click', function (event) {
+        event.preventDefault();
 
+
+        // get users answer
         let userAnswer = document.getElementById('answer-box').value.trim();
 
         // compare user answer with correct answer
-
         if (userAnswer.toLowerCase() === randomPlayer.name.toLowerCase()) {
 
             document.getElementById('feedback-message').textContent = "Shoots and scores! Well done!";
@@ -95,6 +106,9 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         console.log("Feedback message set");
+
+        // Move to next player after 2 second delay
+        setTimeout(updatePlayer, 2000);
     });
 
 });
