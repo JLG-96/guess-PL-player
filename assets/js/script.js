@@ -75,18 +75,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     let randomPlayer = players[Math.floor(Math.random() * players.length)];
+    let score = 0;
+    let questionCount = 0;
+    let totalQuestions = 10;
 
     function updatePlayer() {
         randomPlayer = players[Math.floor(Math.random() * players.length)];
 
-        document.getElementById("player-image").src =`assets/images/players/${randomPlayer.image}`;
+        document.getElementById("player-image").src = `assets/images/players/${randomPlayer.image}`;
 
         // clear feedback and input field
         document.getElementById("answer-box").value = '';
-        document.getElementById('feedback-message').textContent ='';
+        document.getElementById('feedback-message').textContent = '';
+    }
+
+    function updateScore() {
+        document.getElementById('score').textContent = score;
     }
 
     document.getElementById("player-image").src = `assets/images/players/${randomPlayer.image}`;
+    updateScore();
 
     document.querySelector('.submit-button').addEventListener('click', function (event) {
         event.preventDefault();
@@ -99,16 +107,30 @@ document.addEventListener("DOMContentLoaded", function () {
         if (userAnswer.toLowerCase() === randomPlayer.name.toLowerCase()) {
 
             document.getElementById('feedback-message').textContent = "Shoots and scores! Well done!";
+            score++;
+            updateScore();
 
         } else {
 
             document.getElementById('feedback-message').textContent = `What a miss! The correct answer was ${randomPlayer.name}.`;
         }
 
-        console.log("Feedback message set");
 
-        // Move to next player after 2 second delay
-        setTimeout(updatePlayer, 2000);
+        //increment the questions
+        questionCount++;
+
+        if (questionCount < totalQuestions) {
+
+            // Move to next player after 2 second delay
+            setTimeout(updatePlayer, 2000);
+
+        } else {
+            setTimeout(function () {
+                alert(`There's the final whistle! Your score is ${score} out of ${totalQuestions}.`);
+            document.querySelector('submit-button').disabled = true;
+            }, 2000);
+        }
+        console.log("Feedback message set");
     });
 
 });
