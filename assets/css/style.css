@@ -26,6 +26,23 @@ body {
     z-index: 1;
 }
 
+/* Game layout */
+.game-area {
+
+}
+
+.question-area {
+
+}
+
+.answer-area {
+
+}
+
+.score-area {
+    
+}
+
 
 
 /* Media queries for smaller screens */
