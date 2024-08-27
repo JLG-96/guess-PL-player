@@ -131,25 +131,42 @@ document.addEventListener("DOMContentLoaded", function () {
 
         } else if (hintCounter === 2) {
             document.getElementById('hint2').textContent = `Hint 2: Nationality - ${currentPlayer.nationality}`;
-            document.getElementById("player-image").classList.replace("blurred", "reveal-2");
+            document.getElementById("player-image").classList.replace("reveal-1", "reveal-2");
 
         } else if (hintCounter === 3) {
             document.getElementById('hint3').textContent = `Hint 3: Club - ${currentPlayer.club}`;
-            document.getElementById("player-image").classList.replace("blurred", "reveal-3");
+            document.getElementById("player-image").classList.replace("reveal-2", "reveal-3");
 
         } else if (hintCounter >= 4) {
             document.getElementById("player-image").classList.replace("reveal-3", "reveal-4");
-
+            
         }
     }
 
+    function nextImage() {
+        //increment the questions if the user is correct
+        questionCount++;
+
+        if (questionCount < totalQuestions) {
+            updatePlayer();
+        } else {
+            setTimeout(function() {
+                let playAgain = confirm(`There's the final whistle! Your score is ${score} out of ${totalQuestions}.`);
+                if (playAgain) {
+                    restartGame();
+                } else {
+                    document.querySelector('.submit-button').disabled = true;
+                }
+            }, 2000);
+        }
+
+    }
 
     updatePlayer();
     updateScore();
 
     document.querySelector('.submit-button').addEventListener('click', function (event) {
         event.preventDefault();
-
 
         // get users answer
         let userAnswer = document.getElementById('answer-box').value.trim();
@@ -160,30 +177,16 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById('feedback-message').textContent = "Shoots and scores! Well done!";
             score++;
             updateScore();
-
-            //increment the questions if the user is correct
-            questionCount++;
-
-            if (questionCount < totalQuestions) {
-
-                // Move to next player after 2 second delay if user is correct
-                setTimeout(updatePlayer, 2000);
-
-            } else {
-                setTimeout(function () {
-                    let playAgain = confirm(`There's the final whistle! Your score is ${score} out of ${totalQuestions}.`);
-                    if (playAgain) {
-                        restartGame();
-                    } else {
-                        document.querySelector('.submit-button').disabled = true;
-                    }
-                }, 2000);
-            }
+            setTimeout(nextImage, 2000);
 
         } else {
             document.getElementById('feedback-message').textContent = `What a miss! The correct answer was ${currentPlayer.name}.`;
+            if (hintCounter < 4) {
             revealHint(); // Hint for user if answer is incorrect
+        } else {
+            setTimeout(nextImage, 2000);
         }
+    }
 
         console.log("Feedback message set");
     });
