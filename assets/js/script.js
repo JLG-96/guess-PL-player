@@ -74,15 +74,26 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("DOM fully loaded and parsed");
 
 
-    let randomPlayer = players[Math.floor(Math.random() * players.length)];
+    let unusedPlayers = [...players];
     let score = 0;
     let questionCount = 0;
-    let totalQuestions = 10;
+    const totalQuestions = 10;
+    let currentPlayer = null;
 
     function updatePlayer() {
-        randomPlayer = players[Math.floor(Math.random() * players.length)];
+        if (unusedPlayers.length === 0) {
+            console.error("No players left to display.");
+            return;
+        }
 
-        document.getElementById("player-image").src = `assets/images/players/${randomPlayer.image}`;
+        // selecting a random player from the unused players
+        let randomIndex = Math.floor(Math.random() * unusedPlayers.length);
+        currentPlayer = unusedPlayers[randomIndex];
+
+        document.getElementById("player-image").src = `assets/images/players/${currentPlayer.image}`;
+
+        // remove player from array 
+        unusedPlayers.splice(randomIndex, 1);
 
         // clear feedback and input field
         document.getElementById("answer-box").value = '';
@@ -94,6 +105,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function restartGame() {
+        unusedPlayers = [...players]; // reset players array
         score = 0;
         questionCount = 0;
         updateScore();
@@ -101,7 +113,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelector('.submit-button').disabled = false;
     }
 
-    document.getElementById("player-image").src = `assets/images/players/${randomPlayer.image}`;
+    updatePlayer();
     updateScore();
 
     document.querySelector('.submit-button').addEventListener('click', function (event) {
@@ -112,7 +124,7 @@ document.addEventListener("DOMContentLoaded", function () {
         let userAnswer = document.getElementById('answer-box').value.trim();
 
         // compare user answer with correct answer
-        if (userAnswer.toLowerCase() === randomPlayer.name.toLowerCase()) {
+        if (userAnswer.toLowerCase() === currentPlayer.name.toLowerCase()) {
 
             document.getElementById('feedback-message').textContent = "Shoots and scores! Well done!";
             score++;
@@ -120,7 +132,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         } else {
 
-            document.getElementById('feedback-message').textContent = `What a miss! The correct answer was ${randomPlayer.name}.`;
+            document.getElementById('feedback-message').textContent = `What a miss! The correct answer was ${currentPlayer.name}.`;
         }
 
 
@@ -138,7 +150,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (playAgain) {
                     restartGame();
                 } else {
-                    document.querySelector('submit-button').disabled = true;
+                    document.querySelector('.submit-button').disabled = true;
                 }
             }, 2000);
         }
