@@ -139,7 +139,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
         } else if (hintCounter >= 4) {
             document.getElementById("player-image").classList.replace("reveal-3", "reveal-4");
-            setTimeout(nextImage, 2000); 
+            // correct answer displayed after image fully revealed
+            document.getElementById('feedback-message').textContent = `Unlucky! The correct answer was ${currentPlayer.name}.`;
+            setTimeout(nextImage, 3000); 
         }
     }
 
