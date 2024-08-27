@@ -79,6 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let questionCount = 0;
     const totalQuestions = 10;
     let currentPlayer = null;
+    let hintCounter = 0;
 
     function updatePlayer() {
         if (unusedPlayers.length === 0) {
@@ -89,15 +90,23 @@ document.addEventListener("DOMContentLoaded", function () {
         // selecting a random player from the unused players
         let randomIndex = Math.floor(Math.random() * unusedPlayers.length);
         currentPlayer = unusedPlayers[randomIndex];
-
         document.getElementById("player-image").src = `assets/images/players/${currentPlayer.image}`;
+
+        // image blur
+        document.getElementById("player-image").className = "blurred";
 
         // remove player from array 
         unusedPlayers.splice(randomIndex, 1);
 
-        // clear feedback and input field
+        // clear feedback input field and hints
         document.getElementById("answer-box").value = '';
         document.getElementById('feedback-message').textContent = '';
+        document.getElementById('hint1').textContent = '';
+        document.getElementById('hint2').textContent = '';
+        document.getElementById('hint3').textContent = '';
+
+        hintCounter = 0;
+
     }
 
     function updateScore() {
@@ -112,6 +121,28 @@ document.addEventListener("DOMContentLoaded", function () {
         updatePlayer();
         document.querySelector('.submit-button').disabled = false;
     }
+
+
+    function revealHint() {
+        hintCounter++;
+        if (hintCounter === 1) {
+            document.getElementById('hint1').textContent = `Hint 1: Position - ${currentPlayer.position}`;
+            document.getElementById("player-image").classList.replace("blurred", "reveal-1");
+
+        } else if (hintCounter === 2) {
+            document.getElementById('hint2').textContent = `Hint 2: Nationality - ${currentPlayer.nationality}`;
+            document.getElementById("player-image").classList.replace("blurred", "reveal-2");
+
+        } else if (hintCounter === 3) {
+            document.getElementById('hint3').textContent = `Hint 1: Club - ${currentPlayer.club}`;
+            document.getElementById("player-image").classList.replace("blurred", "reveal-3");
+
+        } else if (hintCounter >= 4) {
+            document.getElementById("player-image").classList.replace("reveal-3", "reveal-4");
+
+        }
+    }
+
 
     updatePlayer();
     updateScore();
@@ -131,8 +162,8 @@ document.addEventListener("DOMContentLoaded", function () {
             updateScore();
 
         } else {
-
             document.getElementById('feedback-message').textContent = `What a miss! The correct answer was ${currentPlayer.name}.`;
+            revealHint(); // Hint for user if answer is incorrect
         }
 
 
