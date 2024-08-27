@@ -1,10 +1,12 @@
 /* Global style */
 
 body {
-    background-color:#F0F8FF;
+    background-color: rgba(1, 1, 142, 0.9);
     font-family: "Moderustic", sans-serif;
     color: #8B0000;
     text-align: center;
+    padding: 20px;
+    font-weight: bold;
 }
 
 /* Parent container to hold the logo and text */
@@ -13,22 +15,33 @@ body {
     display: inline-block;
     text-align: center;
     width: 100%;
+    margin-bottom: 20px;
 }
 
-/* background image */
+.header-container h1 {
+    font-size: 2.5rem;
+    color: #f0c419;
+
+}
+
 .logo {
     position: absolute;
     top: 10px;
     left: 50%;
     transform: translateX(-50%);
     height: 75%;
-    opacity: 0.1; 
+    opacity: 0.3; 
     z-index: 1;
 }
 
 /* Game layout */
 .game-area {
-
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.9);
 }
 
 /* Blurring of player and gradual reveal of player */
@@ -58,10 +71,50 @@ body {
     height: auto;
 }
 
+
 #player-image {
     border-radius: 50%;
 }
 
+#feedback-message {
+    font-size: 1.5rem;
+}
+
+.scores {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    color: hsl(48, 88%, 52%);
+}
+
+input[type="text"] {
+    width: 80%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid #f0c419;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+button {
+    background-color: #f0c419;
+    color: rgba(1, 1, 142, 0.9);
+    padding: 10px 20px;
+    border: solid;
+    border-radius: 7.5px;
+    cursor: pointer;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    
+}
+
+button:hover {
+    background-color: #d6a511;
+}
+
+p {
+    font-size: smaller;
+}
 
 /* Media queries for smaller screens */
 @media (max-width: 720px) {
