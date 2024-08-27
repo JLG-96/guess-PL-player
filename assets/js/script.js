@@ -21,7 +21,7 @@ let players = [{
     },
     {
         name: "Virgil Van Dijk",
-        club: "Liverpool",
+        club: "Southampton and Liverpool",
         position: "Centre-Back",
         nationality: "Netherlands",
         image: "virgil_van_dijk.jpeg"
@@ -67,7 +67,135 @@ let players = [{
         position: "Striker",
         nationality: "England",
         image: "jamie_vardy.jpeg"
+    },
+    {
+        name: "Didier Drogba",
+        club: "Chelsea",
+        position: "Striker",
+        nationality: "Cote d'Ivoire",
+        image: "didier_drogba.jpeg"
+    },
+    {
+        name: "Steven Gerrard",
+        club: "Liverpool",
+        position: "Midfielder",
+        nationality: "England",
+        image: "steven_gerrard.jpeg"
+    },
+    {
+        name: "Ryan Giggs",
+        club: "Manchester United",
+        position: "Left midfielder",
+        nationality: "Wales",
+        image: "ryan_giggs.jpeg"
+    },
+    {
+        name: "Thierry Henry",
+        club: "Arsenal",
+        position: "Forward",
+        nationality: "France",
+        image: "thierry_henry.jpeg"
+    },
+    {
+        name: "Alan Shearer",
+        club: "Blackburn and Newcastle",
+        position: "Striker",
+        nationality: "England",
+        image: "alan_shearer.jpeg"
+    },
+    {
+        name: "Petr Cech",
+        club: "Chelsea and Arsenal",
+        position: "Goalkeeper",
+        nationality: "Czech",
+        image: "petr_cech.jpeg"
+    },
+    {
+        name: "Wayne Rooney",
+        club: "Everton and Manchester United",
+        position: "Forward",
+        nationality: "England",
+        image: "wayne_rooney.jpeg"
+    },
+    {
+        name: "Patrick Viera",
+        club: "Arsenal and Manchester City",
+        position: "Midfielder",
+        nationality: "France",
+        image: "patrick_vieira.jpeg"
+    },
+    {
+        name: "Sergio Aguero",
+        club: "Manchester City",
+        position: "Striker",
+        nationality: "Argentina",
+        image: "sergio_aguero.jpeg"
+    },
+    {
+        name: "David Beckham",
+        club: "Manchester United",
+        position: "Right Midfielder",
+        nationality: "England",
+        image: "david_beckham.jpeg"
+    },
+    {
+        name: "Roy Keane",
+        club: "Nottingham Forest and Manchester United",
+        position: "Midfielder",
+        nationality: "Ireland",
+        image: "roy_keane.jpeg"
+    },
+    {
+        name: "Dennis Bergkamp",
+        club: "Arsenal",
+        position: "Forward",
+        nationality: "Netherlands",
+        image: "dennis_bergkamp.jpeg"
+    },
+    {
+        name: "David Silva",
+        club: "Manchester City",
+        position: "Midfielder",
+        nationality: "Spain",
+        image: "david_silva.jpeg"
+    },
+    {
+        name: "Cesc Fabregas",
+        club: "Arsenal and Chelsea",
+        position: "Midfielder",
+        nationality: "Spain",
+        image: "cesc_fabregas.jpeg"
+    },
+    {
+        name: "Harry Kane",
+        club: "Tottenham",
+        position: "Striker",
+        nationality: "England",
+        image: "harry_kane.jpeg"
+    },
+    {
+        name: "Eden Hazard",
+        club: "Chelsea",
+        position: "Forward",
+        nationality: "Belgium",
+        image: "eden_hazard.jpeg"
+    },
+    {
+        name: "Gareth Barry",
+        club: "Aston Villa, Manchester City, Everton and West Brom",
+        position: "Midfielder",
+        nationality: "England",
+        image: "gareth_barry.jpeg"
+    },
+    {
+        name: "Mark Schwarzer",
+        club: "Middlesbrough, Fulham, Chelsea and Leicester",
+        position: "Goalkeeper",
+        nationality: "Australia",
+        image: "mark_schwarzer.jpeg"
     }
+    
+
 ];
 
 document.addEventListener("DOMContentLoaded", function () {
