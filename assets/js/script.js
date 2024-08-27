@@ -139,7 +139,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         } else if (hintCounter >= 4) {
             document.getElementById("player-image").classList.replace("reveal-3", "reveal-4");
-            
+            setTimeout(nextImage, 2000); 
         }
     }
 
@@ -180,7 +180,7 @@ document.addEventListener("DOMContentLoaded", function () {
             setTimeout(nextImage, 2000);
 
         } else {
-            document.getElementById('feedback-message').textContent = `What a miss! The correct answer was ${currentPlayer.name}.`;
+            document.getElementById('feedback-message').textContent = "What a miss!";
             if (hintCounter < 4) {
             revealHint(); // Hint for user if answer is incorrect
         } else {
