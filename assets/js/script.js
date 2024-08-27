@@ -134,7 +134,7 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("player-image").classList.replace("blurred", "reveal-2");
 
         } else if (hintCounter === 3) {
-            document.getElementById('hint3').textContent = `Hint 1: Club - ${currentPlayer.club}`;
+            document.getElementById('hint3').textContent = `Hint 3: Club - ${currentPlayer.club}`;
             document.getElementById("player-image").classList.replace("blurred", "reveal-3");
 
         } else if (hintCounter >= 4) {
@@ -161,30 +161,30 @@ document.addEventListener("DOMContentLoaded", function () {
             score++;
             updateScore();
 
+            //increment the questions if the user is correct
+            questionCount++;
+
+            if (questionCount < totalQuestions) {
+
+                // Move to next player after 2 second delay if user is correct
+                setTimeout(updatePlayer, 2000);
+
+            } else {
+                setTimeout(function () {
+                    let playAgain = confirm(`There's the final whistle! Your score is ${score} out of ${totalQuestions}.`);
+                    if (playAgain) {
+                        restartGame();
+                    } else {
+                        document.querySelector('.submit-button').disabled = true;
+                    }
+                }, 2000);
+            }
+
         } else {
             document.getElementById('feedback-message').textContent = `What a miss! The correct answer was ${currentPlayer.name}.`;
             revealHint(); // Hint for user if answer is incorrect
         }
 
-
-        //increment the questions
-        questionCount++;
-
-        if (questionCount < totalQuestions) {
-
-            // Move to next player after 2 second delay
-            setTimeout(updatePlayer, 2000);
-
-        } else {
-            setTimeout(function () {
-                let playAgain = confirm(`There's the final whistle! Your score is ${score} out of ${totalQuestions}.`);
-                if (playAgain) {
-                    restartGame();
-                } else {
-                    document.querySelector('.submit-button').disabled = true;
-                }
-            }, 2000);
-        }
         console.log("Feedback message set");
     });
 
