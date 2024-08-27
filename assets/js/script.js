@@ -194,7 +194,7 @@ let players = [{
         nationality: "Australia",
         image: "mark_schwarzer.jpeg"
     }
-    
+
 
 ];
 
@@ -269,7 +269,7 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("player-image").classList.replace("reveal-3", "reveal-4");
             // correct answer displayed after image fully revealed
             document.getElementById('feedback-message').textContent = `Unlucky! The correct answer was ${currentPlayer.name}.`;
-            setTimeout(nextImage, 3000); 
+            setTimeout(nextImage, 3000);
         }
     }
 
@@ -280,7 +280,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (questionCount < totalQuestions) {
             updatePlayer();
         } else {
-            setTimeout(function() {
+            setTimeout(function () {
                 let playAgain = confirm(`There's the final whistle! Your score is ${score} out of ${totalQuestions}.`);
                 if (playAgain) {
                     restartGame();
@@ -307,16 +307,22 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById('feedback-message').textContent = "Shoots and scores! Well done!";
             score++;
             updateScore();
+
+            // reveal unblurred image if user correct
+            document.getElementById("player-image").classList.remove("blurred", "reveal-1", "reveal-2", "reveal-3");
+            document.getElementById("player-image").classList.add("reveal-4");
+
+
             setTimeout(nextImage, 2000);
 
         } else {
             document.getElementById('feedback-message').textContent = "What a miss!";
             if (hintCounter < 4) {
-            revealHint(); // Hint for user if answer is incorrect
-        } else {
-            setTimeout(nextImage, 2000);
+                revealHint(); // Hint for user if answer is incorrect
+            } else {
+                setTimeout(nextImage, 2000);
+            }
         }
-    }
 
         console.log("Feedback message set");
     });

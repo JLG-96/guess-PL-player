@@ -62,19 +62,6 @@ body {
     border-radius: 50%;
 }
 
-.question-area {
-
-}
-
-.answer-area {
-
-}
-
-.score-area {
-    
-}
-
-
 
 /* Media queries for smaller screens */
 @media (max-width: 720px) {
