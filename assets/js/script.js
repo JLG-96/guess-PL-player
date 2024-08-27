@@ -118,7 +118,7 @@ let players = [{
         image: "wayne_rooney.jpeg"
     },
     {
-        name: "Patrick Viera",
+        name: "Patrick Vieira",
         club: "Arsenal and Manchester City",
         position: "Midfielder",
         nationality: "France",
@@ -237,7 +237,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
-    function updateScore() {
+    function updateScore(points) {
+        score += points; //increment score by points
         document.getElementById('score').textContent = score;
     }
 
@@ -245,7 +246,7 @@ document.addEventListener("DOMContentLoaded", function () {
         unusedPlayers = [...players]; // reset players array
         score = 0;
         questionCount = 0;
-        updateScore();
+        updateScore(0);
         updatePlayer();
         document.querySelector('.submit-button').disabled = false;
     }
@@ -273,6 +274,17 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    // points system, more hints = less points
+    function calculatePoints (hintCounter) {
+        switch (hintCounter) {
+            case 0: return 4;
+            case 1: return 3; 
+            case 2: return 2;
+            case 3: return 1;
+            default: return 0;
+        }
+    }
+
     function nextImage() {
         //increment the questions if the user is correct
         questionCount++;
@@ -293,7 +305,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     updatePlayer();
-    updateScore();
+    updateScore(0);
 
     document.querySelector('.submit-button').addEventListener('click', function (event) {
         event.preventDefault();
@@ -305,8 +317,10 @@ document.addEventListener("DOMContentLoaded", function () {
         if (userAnswer.toLowerCase() === currentPlayer.name.toLowerCase()) {
 
             document.getElementById('feedback-message').textContent = "Shoots and scores! Well done!";
-            score++;
-            updateScore();
+            
+            // calculate points based on hints
+            let points = calculatePoints(hintCounter);
+            updateScore(points);
 
             // reveal unblurred image if user correct
             document.getElementById("player-image").classList.remove("blurred", "reveal-1", "reveal-2", "reveal-3");
