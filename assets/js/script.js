@@ -93,6 +93,14 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById('score').textContent = score;
     }
 
+    function restartGame() {
+        score = 0;
+        questionCount = 0;
+        updateScore();
+        updatePlayer();
+        document.querySelector('.submit-button').disabled = false;
+    }
+
     document.getElementById("player-image").src = `assets/images/players/${randomPlayer.image}`;
     updateScore();
 
@@ -126,8 +134,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
         } else {
             setTimeout(function () {
-                alert(`There's the final whistle! Your score is ${score} out of ${totalQuestions}.`);
-            document.querySelector('submit-button').disabled = true;
+                let playAgain = confirm(`There's the final whistle! Your score is ${score} out of ${totalQuestions}.`);
+                if (playAgain) {
+                    restartGame();
+                } else {
+                    document.querySelector('submit-button').disabled = true;
+                }
             }, 2000);
         }
         console.log("Feedback message set");
