@@ -218,16 +218,19 @@ document.addEventListener("DOMContentLoaded", function () {
         // selecting a random player from the unused players
         let randomIndex = Math.floor(Math.random() * unusedPlayers.length);
         currentPlayer = unusedPlayers[randomIndex];
-        document.getElementById("player-image").src = `assets/images/players/${currentPlayer.image}`;
+        const playerImage = document.getElementById("player-image");
 
-        // image blur
-        document.getElementById("player-image").className = "blurred";
+        // image load blurred 
+        playerImage.className = "blurred";
+        playerImage.src = `assets/images/players/${currentPlayer.image}`;
+        
 
         // remove player from array 
         unusedPlayers.splice(randomIndex, 1);
 
         // clear feedback input field and hints
         document.getElementById("answer-box").value = '';
+        document.getElementById("answer-box").focus();
         document.getElementById('feedback-message').textContent = '';
         document.getElementById('hint1').textContent = '';
         document.getElementById('hint2').textContent = '';
@@ -249,25 +252,28 @@ document.addEventListener("DOMContentLoaded", function () {
         updateScore(0);
         updatePlayer();
         document.querySelector('.submit-button').disabled = false;
+        document.getElementById("answer-box").focus();
     }
 
 
     function revealHint() {
         hintCounter++;
+        const playerImage = document.getElementById("player-image");
+
         if (hintCounter === 1) {
             document.getElementById('hint1').textContent = `Hint 1: Position - ${currentPlayer.position}`;
-            document.getElementById("player-image").classList.replace("blurred", "reveal-1");
+           playerImage.classList.replace("blurred", "reveal-1");
 
         } else if (hintCounter === 2) {
             document.getElementById('hint2').textContent = `Hint 2: Nationality - ${currentPlayer.nationality}`;
-            document.getElementById("player-image").classList.replace("reveal-1", "reveal-2");
+            playerImage.classList.replace("reveal-1", "reveal-2");
 
         } else if (hintCounter === 3) {
             document.getElementById('hint3').textContent = `Hint 3: Club - ${currentPlayer.club}`;
-            document.getElementById("player-image").classList.replace("reveal-2", "reveal-3");
+            playerImage.classList.replace("reveal-2", "reveal-3");
 
         } else if (hintCounter >= 4) {
-            document.getElementById("player-image").classList.replace("reveal-3", "reveal-4");
+            playerImage.classList.replace("reveal-3", "reveal-4");
             // correct answer displayed after image fully revealed
             document.getElementById('feedback-message').textContent = `Unlucky! The correct answer was ${currentPlayer.name}.`;
             setTimeout(nextImage, 3000);
@@ -293,7 +299,7 @@ document.addEventListener("DOMContentLoaded", function () {
             updatePlayer();
         } else {
             setTimeout(function () {
-                let playAgain = confirm(`There's the final whistle! Your score is ${score} out of ${totalQuestions}.`);
+                let playAgain = confirm(`There's the final whistle! Your score is ${score} out of ${totalQuestions * 4}.`);
                 if (playAgain) {
                     restartGame();
                 } else {
@@ -307,8 +313,14 @@ document.addEventListener("DOMContentLoaded", function () {
     updatePlayer();
     updateScore(0);
 
+    document.getElementById("answer-box").addEventListener('keydown', function(event){
+        if(event.key === 'Enter'){
+            document.querySelector('.submit-button').click();
+        }
+    })
+
     document.querySelector('.submit-button').addEventListener('click', function (event) {
-        event.preventDefault();
+        
 
         // get users answer
         let userAnswer = document.getElementById('answer-box').value.trim();
@@ -331,6 +343,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         } else {
             document.getElementById('feedback-message').textContent = "What a miss!";
+            document.getElementById("answer-box").focus(); //keep focus in answer box after incorrect guesses
             if (hintCounter < 4) {
                 revealHint(); // Hint for user if answer is incorrect
             } else {

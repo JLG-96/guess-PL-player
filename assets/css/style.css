@@ -1,7 +1,7 @@
 /* Global style */
 
 body {
-    background-color: rgba(1, 1, 142, 0.9);
+    background-color: rgba(0, 0, 54, 0.9);
     font-family: "Moderustic", sans-serif;
     color: #8B0000;
     text-align: center;
@@ -42,6 +42,10 @@ body {
     max-width: 600px;
     margin: 0 auto;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.9);
+}
+
+.game-area p {
+    margin-bottom: 10px;
 }
 
 /* Blurring of player and gradual reveal of player */
@@ -116,6 +120,7 @@ button:hover {
 
 p {
     font-size: smaller;
+    font-weight: normal;   
 }
 
 /* Media queries for smaller screens */
@@ -127,6 +132,11 @@ p {
 
     .game-area {
         width: 80%;
+    }
+
+    .logo {
+        width: 50%;
+        
     }
 
     img {
