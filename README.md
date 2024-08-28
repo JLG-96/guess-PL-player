@@ -1,131 +1,116 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Guess the Premier League Player
 
-Welcome Jack Leonard-gill,
+"Guess the Premier League Player" is an interactive JavaScript based game that has been designed specifically for football enthusiasts, testing their knowledge of Premier League stars past and present. 
+The game aims to challenge users to identify Premier League legends through progressively revealed images and hints. It is targeted at football fans and anyone who would love an interactive challenge to expand their Premier League knowledge in a fun and engaging way. 
+Guess the Premier League Player is a fully responsive JavaScript game, with a large library of players to keep the user entertained, they will be challenged to get as high a score as they can by guessing the player in as little attempts as possible.
+![Screenshot showing the responsiveness of the site on a varierty of different devices (laptop, tablet, monitor and mobile).](assets/screenshots/1.png)
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+## Features
+(In this section, you should go over the different parts of your project, and describe each in a sentence or so. You will need to explain what value each of the features provides for the user, focusing on who this website is for, what it is that they want to achieve and how your project is the best way to help them achieve these things.)
 
-You can safely delete this README.md file or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **June 18, 2024**
+- **Guess the Premier League Player Logo and Heading**
+  - The heading and logo are placed at the top of the page to make for easy viewing for the user. It immediately sets the theme of the game and engages users from the star.
+  ![Screenshot showing the games logo and heading](assets/screenshots/2.png)
 
-## Gitpod Reminders
+- **Game Area** 
+  - The main section was desgined with a "football card" in mind. A clear and easy to navigate to, are for the game to be carried out. This section allows users to view a blurred image of a footballer and gets the user to attempt to guess the player's name. 
+  - Users will type their answers in the input box and submit by pressing enter or clicking the "Shoot!" button. 
+  - Whether the user is correct or incorrect they will still be automatically taken to the next image, to allow a free-flowing feel to the game and keep the users attention on the image and the game itself. 
+![Screenshot showing the sites main game area](assets/screenshots/3.png)
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
 
-`python3 -m http.server`
+- **Image Reveal and Hints**
+  - The game has a unique feature, which is to progressively reveal more of the image and provide hints depending on how difficult the user is finding that particular image. With each incorrect guess, more of the image is revealed and a hint is provided.
+  - The user will have a maximum of 4 attempts to guess correctly, with a total of 3 hints provided to help them.
+  - The hints reveal the players *position, nationality and club*.
+![Screenshot showing all hints being revealed and the stage the image is in before being fully revealed.](assets/screenshots/4.png)
 
-A blue button should appear to click: _Make Public_,
 
-Another blue button should appear to click: _Open Browser_.
+- **Score Area**
+  - This section displayers the users current score out of a total possible 40 points. 
+  - Points decrease with each hint used, with the design to reward the players who are able to guess correctly with fewer hints.
+  - The feature helps the user keep track of their performance and encourages replayability by seeing if the user can beat their own score.
+  - Users can recieve a maximum of 4 points or a lowest of 0. Users could also challenge other users to see who is best.
+  ![Screenshot of the score area of the game](assets/screenshots/5.png)
 
-To run a backend Python file, type `python3 app.py` if your Python file is named `app.py`, of course.
+- **Answer Input Focus**
+  - The input field automatically focuses when the game loads to give clear indication to the user where the main play area of the game is. After each incorrect and when the next image is presented, the input field remains focussed to provide a smooth user experience.
 
-A blue button should appear to click: _Make Public_,
+- **Submitting answers with Enter Key**
+  - Users are able to submit their answers by pressing the "Enter" key, this is to enhance the gameplay experience by providing convenience and allowing the user to submit answers quickly.
 
-Another blue button should appear to click: _Open Browser_.
+- **Feedback provided to user**
+  - Feedback is provided to the user throughout the game. As it is a football game the feedback has been designed to with this theme in mind. Providing a more submersive and enhancing experience. 
+  ![Screenshot showing user feedback when answer is incorrect but still have another attempt](assets/screenshots/6.png)
+  ![Screenshot showing user feedback when answer is incorrect](assets/screenshots/7.png)
+  ![Screenshot showing user feedback when answer is correct](assets/screenshots/8.png)
+  ![Screenshot showing user feedback upon completion of the game](assets/screenshots/9.png)
 
-By Default, Gitpod gives you superuser security privileges. Therefore, you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+- **Player reveal and next question**
+  - Whenever the user is correct, the game reveals the player immediately, allowing the user to see the player in the kit of a team they played for.
+  - If a user struggles to get it correct after all available attempts, part of the feedback for the user is that the player is revealed to show player they were struggling with, as well as the name. Spellings matter in this game, so revealing the correct spelling will allow the user to know how to get the answer right next time.
+  - Whether a user is correct / incorrect and they are finished with the image, the game automatically reveals another image for the user to guess. Designed to keep the game fluid by providing a smooth transition and keep the user immersed. 
 
-To log into the Heroku toolbelt CLI:
+- **Opportunity to play again** 
+  - At the end of the game the user is provided with their total score out of 40. They are also provided with the opportunity to replay the game. By pressing "okay" this will reset the game. This was so the user doesn't have to keep reloading the game to play and to help encourage replayability. With a library of 28 players, this should provide the user with enough variety and challenge to be entertained. 
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+- **Features left to implement**
+  - Progress checker. A way for user to know how much they have progressed through the game so far. This could be a percentage bar or just numbering each image from 1 - 10. 
+  - Leaderboard. A future feacture would include a leaderboard where users can see how their high scores compete against others globally / locally, adding a further competitive element and hoping to enhance the replayability. 
+  - A share feature will be implemented to allow users to challenge other users to beat their score.
+  - Expanding the player library. Adding more players to increase the variety within the game, combining recent players with older players. The update could allow the addition of Premier League managers. 
+  - The use of audio will be implemented in a future update to give the game a different dimensional feel. For example, a full time whistle at the end of the game, start whistle, fans groan when an answer incorrect and fans cheer when answer is correct. 
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you, so do not share it. If you accidentally make it public, you can create a new one with _Regenerate API Key_.
+  *The code institues **Love Maths and Love Running** project helped provide code for the game, including; part of the main structure, resetting the game, providing an alert as feedback, how to single out an object from within an array, the code to focus the cursor, have the enter button as submit.*
 
-### Connecting your Mongo database
+## Testing
+  - The game has been extensively tested to ensure that it works as intended. 
+    - The game has been tested using different browsers (Chrome, Safari and Edge) to ensure that it works. Functions such as the hint reveal, gradual reveal of images, score updating, alert feedback, in-game feedback, and Enter key submissions work correctly.
+    - Media queries were implemented to esnure a smooth user experience across a variety of devices.
 
-- **Connect to Mongo CLI on a IDE**
-- navigate to your MongoDB Clusters Sandbox
-- click **"Connect"** button
-- select **"Connect with the MongoDB shell"**
-- select **"I have the mongo shell installed"**
-- choose **mongosh (2.0 or later)** for : **"Select your mongo shell version"**
-- choose option: **"Run your connection string in your command line"**
-- in the terminal, paste the copied code `mongo "mongodb+srv://<CLUSTER-NAME>.mongodb.net/<DBname>" --apiVersion 1 --username <USERNAME>`
-  - replace all `<angle-bracket>` keys with your own data
-- enter password _(will not echo **\*\*\*\*** on screen)_
+  #### Validator testing
+    - HTML 
+      - No errors were returned when passing each page through the official W3C validatior (https://validator.w3.org/).
+    - CSS
+      - No errors were discovered when passing through the official CSS validator (https://jigsaw.w3.org/css-validator/).
+    - JavaScript 
+      - No errors were found when passing through the official Jshint validator (https://jshint.com/).
+        - There are 10 functions in this file. 
+        - Function with the largest signature take 1 arguments, while the median is 0. 
+        - Largest function has 17 statements in it, while the median is 5.5. 
+        - The most complex function has a cyclomatic complexity value of 5 while the median is 2.
+    
+  #### Unfixed bugs
+    - Occasionally, the whilst the image is loading, it very briefly appears unblurred. This is against the design and can make the game slightly easier for the user. I believe I fixed this bug by applying the "blurred" class setting before the image source, however this has not been successful. 
+    In a future update, I plan to fix this bug by providing a countdown / a different image for which the blurred image player can load properly behind before being shown to the user. 
+    - The user can keep "spamming" the submit button and this causes the game to flick through images. This doesn't allow the user to gain an advantage because it will only hinder their total score. However, a future update looking at disabling the submit button once all the hints have been revealed can be implemented to correct this. 
 
-------
+## Deployment
+The site was deployed to GitHub pages. It has been deployed using the following steps:
+    - In the GitHub repository (named = *guess-PL-player*) scroll down until you come across deplyments on the right hand side.
+    - Click the github-pages link. 
+    - Click the link within the github-pages box.
+    - This will open a separate tab with the successfully deployed site. 
 
-## Release History
+The live link can be found here; https://jlg-96.github.io/guess-PL-player/
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+## Credits 
 
-**June 18, 2024,** Add Mongo back into template
+  - Content
+    - Within the website the code institute helped provide the coding for;
+      - Alerts. 
+      - Targetting an object within an array. 
+      - Splice. 
+      - Focus the cursor in the text box. 
+      - Keydown for Enter key. 
+      - Functions. 
+      - If, else if and if.
+      - And how to implement Math.floor and Math.random
 
-**June 14, 2024,** Temporarily remove Mongo until the key issue is resolved
+    - W3Schools have helped throughout the project by providing additional information and clarity in areas where I lacked understanding. 
 
-**May 28 2024:** Fix Mongo and Links installs
+    - Help with the blurred images part of the game was provided from this site; https://stackoverflow.com/questions/62039703/blur-an-image-with-javascript
 
-**April 26 2024:** Update node version to 16
-
-**September 20 2023:** Update Python version to 3.9.17.
-
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
-
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
-
-**July 2 2021:** Remove extensions that are not available in Open VSX.
-
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
-
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
-
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
-
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
-
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
-
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
-
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
-------
-
-## FAQ about the uptime script
-
-**Why have you added this script?**
-
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
-
-**How will this affect me?**
-
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
-
----
-
-Happy coding!
+  - Media 
+    - Player images were taken from google images. They have mainly come from the corresponding clubs website. 
+    - The logo was taken from google images.
