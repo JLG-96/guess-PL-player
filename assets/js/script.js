@@ -223,7 +223,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // image load blurred 
         playerImage.className = "blurred";
         playerImage.src = `assets/images/players/${currentPlayer.image}`;
-        
+
 
         // remove player from array 
         unusedPlayers.splice(randomIndex, 1);
@@ -262,7 +262,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (hintCounter === 1) {
             document.getElementById('hint1').textContent = `Hint 1: Position - ${currentPlayer.position}`;
-           playerImage.classList.replace("blurred", "reveal-1");
+            playerImage.classList.replace("blurred", "reveal-1");
 
         } else if (hintCounter === 2) {
             document.getElementById('hint2').textContent = `Hint 2: Nationality - ${currentPlayer.nationality}`;
@@ -281,13 +281,18 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // points system, more hints = less points
-    function calculatePoints (hintCounter) {
+    function calculatePoints(hintCounter) {
         switch (hintCounter) {
-            case 0: return 4;
-            case 1: return 3; 
-            case 2: return 2;
-            case 3: return 1;
-            default: return 0;
+            case 0:
+                return 4;
+            case 1:
+                return 3;
+            case 2:
+                return 2;
+            case 3:
+                return 1;
+            default:
+                return 0;
         }
     }
 
@@ -313,14 +318,14 @@ document.addEventListener("DOMContentLoaded", function () {
     updatePlayer();
     updateScore(0);
 
-    document.getElementById("answer-box").addEventListener('keydown', function(event){
-        if(event.key === 'Enter'){
+    document.getElementById("answer-box").addEventListener('keydown', function (event) {
+        if (event.key === 'Enter') {
             document.querySelector('.submit-button').click();
         }
     })
 
     document.querySelector('.submit-button').addEventListener('click', function (event) {
-        
+
 
         // get users answer
         let userAnswer = document.getElementById('answer-box').value.trim();
@@ -329,7 +334,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (userAnswer.toLowerCase() === currentPlayer.name.toLowerCase()) {
 
             document.getElementById('feedback-message').textContent = "Shoots and scores! Well done!";
-            
+
             // calculate points based on hints
             let points = calculatePoints(hintCounter);
             updateScore(points);

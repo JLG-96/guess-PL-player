@@ -120,7 +120,7 @@ button:hover {
 
 p {
     font-size: smaller;
-    font-weight: normal;   
+    font-weight: normal;
 }
 
 /* Media queries for smaller screens */
@@ -136,7 +136,7 @@ p {
 
     .logo {
         width: 50%;
-        
+
     }
 
     img {
